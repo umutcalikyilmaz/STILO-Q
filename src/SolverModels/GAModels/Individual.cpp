@@ -1,6 +1,6 @@
-#include "STILO-Q/SolverModels/GAModels/Individual.h"
+#include "STILOQ/SolverModels/GAModels/Individual.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void Individual::pointMutate()
     {

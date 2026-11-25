@@ -1,6 +1,6 @@
-#include "STILO-Q/SolverModels/GAModels/IndividualPool.h"
+#include "STILOQ/SolverModels/GAModels/IndividualPool.h"
 
-namespace QEVO
+namespace STILOQ
 {
     IndividualPool::IndividualPool(int stateCount, int stringLength, double mutationProbability,
         double pointMutationProbability, double pointMutationCoefficient, double insertMutationCoefficient,

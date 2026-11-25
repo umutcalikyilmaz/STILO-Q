@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/JobCreator.h"
+#include "STILOQ/Analyzers/JobCreator.h"
 
-namespace QEVO
+namespace STILOQ
 {
     std::vector<std::unique_ptr<Job>> JobCreator::createACOJobs(const ACOConfigurationSet& params)
     {

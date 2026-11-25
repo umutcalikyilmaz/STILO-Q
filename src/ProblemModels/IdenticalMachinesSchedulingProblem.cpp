@@ -1,6 +1,6 @@
-#include "STILO-Q/ProblemModels/IdenticalMachinesSchedulingProblem.h"
+#include "STILOQ/ProblemModels/IdenticalMachinesSchedulingProblem.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void IdenticalMachinesSchedulingProblem::getHeuristicValuesMultiStage(std::vector<std::vector<std::vector<double>>>& heuristic)
     {

@@ -1,8 +1,8 @@
-#include "STILO-Q/Solvers/SASolver.h"
+#include "STILOQ/Solvers/SASolver.h"
 
 using namespace std::chrono_literals;
 
-namespace QEVO
+namespace STILOQ
 {
     void SASolver::checkInput(Problem* problem, const SAConfiguration& config)
     {

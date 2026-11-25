@@ -1,8 +1,8 @@
-#include "STILO-Q/Solvers/MQEASolver.h"
+#include "STILOQ/Solvers/MQEASolver.h"
 
 using namespace std::chrono_literals;
 
-namespace QEVO
+namespace STILOQ
 {
     SolverOutput MQEASolver::solve(const SolverInput& input)
     {

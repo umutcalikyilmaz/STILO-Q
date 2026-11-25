@@ -1,6 +1,6 @@
-#include "STILO-Q/ProblemModels/MaxCutProblem.h"
+#include "STILOQ/ProblemModels/MaxCutProblem.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void MaxCutProblem::getHeuristicValuesMultiStage(std::vector<std::vector<std::vector<double>>>& heuristic)
     {

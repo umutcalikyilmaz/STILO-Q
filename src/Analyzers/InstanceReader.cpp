@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/InstanceReader.h"
+#include "STILOQ/Analyzers/InstanceReader.h"
 
-namespace QEVO
+namespace STILOQ
 {
     std::vector<std::tuple<std::unique_ptr<Problem>, std::string, double>> InstanceReader::readInstances(ProblemType pt, string instanceDirectory)
     {

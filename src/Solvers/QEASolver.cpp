@@ -1,6 +1,6 @@
-#include "STILO-Q/Solvers/QEASolver.h"
+#include "STILOQ/Solvers/QEASolver.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void QEASolver::checkInput(Problem* problem, const QEAConfiguration& config)
     {

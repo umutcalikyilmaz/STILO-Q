@@ -1,8 +1,8 @@
-#include "STILO-Q/Solvers/ACOSolver.h"
+#include "STILOQ/Solvers/ACOSolver.h"
 
 using namespace std::chrono_literals;
 
-namespace QEVO
+namespace STILOQ
 {
     void ACOSolver::checkInput(Problem* problem, const ACOConfiguration& config)
     {

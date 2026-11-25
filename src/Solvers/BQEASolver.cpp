@@ -1,8 +1,8 @@
-#include "STILO-Q/Solvers/BQEASolver.h"
+#include "STILOQ/Solvers/BQEASolver.h"
 
 using namespace std::chrono_literals;
 
-namespace QEVO
+namespace STILOQ
 {
     void BQEASolver::checkBinary(Problem* problem, const QEAConfiguration& config)
     {

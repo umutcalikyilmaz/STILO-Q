@@ -1,6 +1,6 @@
-#include "STILO-Q/ProblemModels/Problem.h"
+#include "STILOQ/ProblemModels/Problem.h"
 
-namespace QEVO
+namespace STILOQ
 {
     Problem::Problem(const Problem& original)
         : stateCount(original.stateCount),

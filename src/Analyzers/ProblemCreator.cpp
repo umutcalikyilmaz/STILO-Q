@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/ProblemCreator.h"
+#include "STILOQ/Analyzers/ProblemCreator.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void ProblemCreator::openFile(string problem, string fileName, bool in)
     {

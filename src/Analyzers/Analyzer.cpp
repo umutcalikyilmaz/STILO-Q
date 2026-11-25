@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/Analyzer.h"
+#include "STILOQ/Analyzers/Analyzer.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void Analyzer::createJobs()
     {

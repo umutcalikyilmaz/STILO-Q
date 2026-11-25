@@ -1,8 +1,8 @@
-#include "STILO-Q/Solvers/GASolver.h"
+#include "STILOQ/Solvers/GASolver.h"
 
 using namespace std::chrono_literals;
 
-namespace QEVO
+namespace STILOQ
 {
     void GASolver::checkInput(Problem* problem, const GAConfiguration& config)
     {

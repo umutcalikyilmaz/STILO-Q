@@ -1,6 +1,6 @@
-#include "STILO-Q/ProblemModels/TravelingSalespersonProblem.h"
+#include "STILOQ/ProblemModels/TravelingSalespersonProblem.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void TravelingSalespersonProblem::getHeuristicValuesMultiStage(std::vector<std::vector<std::vector<double>>>& heuristic)
 	{

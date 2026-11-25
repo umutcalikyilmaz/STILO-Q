@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/InstanceAnalyzer.h"
+#include "STILOQ/Analyzers/InstanceAnalyzer.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void InstanceAnalyzer::createProblems(std::unique_ptr<Problem> problem)
     {

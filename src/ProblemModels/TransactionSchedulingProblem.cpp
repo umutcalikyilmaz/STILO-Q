@@ -1,6 +1,6 @@
-#include "STILO-Q/ProblemModels/TransactionSchedulingProblem.h"
+#include "STILOQ/ProblemModels/TransactionSchedulingProblem.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void TransactionSchedulingProblem::getHeuristicValuesMultiStage(std::vector<std::vector<std::vector<double>>>& heuristic)
     {

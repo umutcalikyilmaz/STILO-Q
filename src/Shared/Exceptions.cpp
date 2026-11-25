@@ -1,6 +1,6 @@
-#include "STILO-Q/Shared/Exceptions.h"
+#include "STILOQ/Shared/Exceptions.h"
 
-namespace QEVO
+namespace STILOQ
 {
     InvalidParameterException::InvalidParameterException(char* msg) : errmsg_(msg) { }
 

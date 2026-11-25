@@ -1,6 +1,6 @@
-#include "STILO-Q/Analyzers/SyntheticAnalyzer.h"
+#include "STILOQ/Analyzers/SyntheticAnalyzer.h"
 
-namespace QEVO
+namespace STILOQ
 {
     void SyntheticAnalyzer::createIMSP(int jobCount, int machineCount, ProbabilityDistribution lengthDistribution,
         double distributionParameter1, double distributionParameter2)

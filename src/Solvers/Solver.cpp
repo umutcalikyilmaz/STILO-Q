@@ -1,6 +1,6 @@
-#include "STILO-Q/Solvers/Solver.h"
+#include "STILOQ/Solvers/Solver.h"
 
-namespace QEVO
+namespace STILOQ
 {
     double Solver::getTime()
     {
