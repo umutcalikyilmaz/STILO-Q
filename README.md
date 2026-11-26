@@ -1,5 +1,11 @@
 # STILO-Q
-STILO-Q is an extension of the **[STILO](https://github.com/umutcalikyilmaz/STILO)**, which is a metaheuristic framework for strict time-limited optimization. STILO-Q includes different variants of the quantum-inspired evolutionary algorithm (QEA), in addition to the metaheuristics and analysis tools provided in STILO.
+STILO-Q is an extension of the **[STILO](https://github.com/umutcalikyilmaz/STILO)**, which is a metaheuristic framework for strict time-limited optimization. STILO-Q includes different variants of the quantum-inspired evolutionary algorithm (QEA), in addition to the metaheuristic methods provided in STILO.
+
+## Relationship to STILO
+
+STILO-Q retains the general functionalities of STILO, including problem modeling, synthetic instance generation, conventional metaheuristic solvers, and time-limited experimental analysis. For detailed descriptions of these functionalities, please refer to the original STILO documentation.
+
+STILO-Q is distributed as a separate, self-contained library and uses the `STILOQ` namespace instead of `STILO. Since it shares many classes and functionalities with its predecessor, this documentation often refers to the STILO documentation, rather than repeating the existing instructions. When following the original `STILO` documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
 
 ## Installation
 STILO is designed for Debian-based systems and is currently not compatible with Windows or macOS. STILO requires C++20. For standard installation, the following bash instructions should be executed in the project's root folder.
@@ -25,3 +31,22 @@ The framework headers can be included using:
 ```c++
 #include <STILOQ/STILOQ.h>
 ```
+
+### Creating Problem Instances
+Similar to STILO, STILO-Q includes a generic `Problem` class that serves as a base for any problem to be integrated into the framework and five classes derived from the base `Problem` class, each representing a different discrete optimization problem. Instances can be created either from complete problem data or by providing parameters from which STILO-Q randomly generates an instance. The procedure for problem generation does not differ from the STILO framework, so the process is not repeated here. Please refer to STILO material for a detailed description of problem generation.
+
+### Solving Problem Instances
+STILOQ contains three solver classes:
+- `ACOSolver` (Ant Colony Optimization Solver)
+- `GASolver` (Genetic Algorithm Solver)
+- `SASolver` (Simulated Annealing Solver)
+- `BQEASolver` (Binary Quantum-Inspired Evolutionary Algorithm Solver)
+- `MQEASolver` (Multi-Level Quantum-Inspired Evolutionary Algorithm Solver)
+
+
+Each solver is derived from the base `Solver` class and provides a `solve()` member function for solving a given problem instance under a specified configuration. Solver inputs are standardized through the `SolverInput` class. The examples below demonstrate how to configure and use `BQEASolver` and `MQEASolver`. The purpose and behavior of the individual configuration parameters are described in detail in the referenced paper. The other solvers are explained in the STILO documentation.
+
+
+
+
+
