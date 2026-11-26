@@ -96,4 +96,7 @@ input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // dou
 mqeaSolver.solve(input);
 ```
 
-It is important to note that the cited paper does not cover 
+It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILOQ allows them to be used for all implemented problem types.
+
+
+### Analyzing Solver Configurations
