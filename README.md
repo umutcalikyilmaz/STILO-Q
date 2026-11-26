@@ -54,9 +54,9 @@ STILO-Q contains five solver classes:
 - `MQEASolver` (Multi-Level Quantum-Inspired Evolutionary Algorithm Solver)
 
 
-Each solver is derived from the base `Solver` class and provides a `solve()` member function for solving a given problem instance under a specified configuration. Solver inputs are standardized through the `SolverInput` class. The examples below demonstrate how to configure and use `BQEASolver` and `MQEASolver`. The purpose and behavior of the individual configuration parameters are described in detail in the referenced paper. The other solvers are described in the [STILO documentation][stilo-solvers].
+Each solver is derived from the base `Solver` class and provides a `solve()` member function for solving a given problem instance under a specified configuration. Solver inputs are standardized through the `SolverInput` class. The example below demonstrates how to configure and use `BQEASolver` and `MQEASolver`. The purpose and behavior of the individual configuration parameters are described in detail in the referenced paper. The other solvers are described in the [STILO documentation][stilo-solvers].
 
-`BQEASolver` and `MQEASolver` share the same algorithmic structure and use a common configuration class, `QEAConfiguration`, accessible through the `QEAConfig` member of a `SolverInput` instance. Depending on the solver to which the SolverInput object is passed, this configuration determines the behavior of either BQEA or MQEA. Both uses are demonstrated in the following example.
+`BQEASolver` and `MQEASolver` share the same algorithmic structure and use a common configuration class, `QEAConfiguration`, accessible through the `QEAConfig` member of a `SolverInput` instance. Depending on the solver to which the `SolverInput` object is passed, this configuration determines the behavior of either BQEA or MQEA. The following example demonstrates the common configuration interface and its use with both solvers.
 
 ```cpp
 STILOQ::SolverInput input;
