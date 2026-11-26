@@ -85,12 +85,14 @@ STILOQ::MQEASolver mqeaSolver;
 mqeaSolver.solve(input);
 ```
 
+The four QEA variants mentioned in the cited paper, and the configuration settings to use them in STILO-Q are given below.
+
 | Algorithm variant | Solver class | Graph structure | Initialization |
 |---|---|---|---|
-| BQEA | `BQEASolver` | Sequential | Standard |
-| MQEA | `MQEASolver` | Sequential | Standard |
-| MQEA-G | `MQEASolver` | Graph-based | Standard |
-| MQEA-GH | `MQEASolver` | Graph-based | Heuristic |
+| BQEA | `BQEASolver` | STILOQ::GraphStructure::Sequential | STILOQ::InitializationType::Standard |
+| MQEA | `MQEASolver` | STILOQ::GraphStructure::Sequential | STILOQ::InitializationType::Standard |
+| MQEA-G | `MQEASolver` | STILOQ::GraphStructure::SingleStage | STILOQ::InitializationType::Standard |
+| MQEA-GH | `MQEASolver` | STILOQ::GraphStructure::SingleStage | STILOQ::InitializationType::Heuristic |
 
 It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILO-Q allows them to be used for all implemented problem types.
 
