@@ -17,7 +17,7 @@ namespace STILOQ
         int modelBestRotationCount;
         AngleCalculationOperator angleCalculationOperator;
         GraphStructure graphStructure;
-        InitializationOperator initializationType;
+        InitializationType initializationType;
     };
     
 }

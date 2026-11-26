@@ -19,7 +19,7 @@ namespace STILOQ
         std::unique_ptr<QEAIteratorWrapper> createIterator(Problem* problem, GraphStructure graphStructure,
             SolverType solverType, AngleCalculationOperator angleCalculation, int globalBestRotationCount,
             int iterationBestRotationCount, int modelBestRotationCount, int populationSize, int measurementCount,
-            double limitAngle, InitializationOperator initialization,
+            double limitAngle, InitializationType initialization,
             std::vector<std::vector<std::vector<double>>> heuristic, double baseGlobalBestAngle,
             double baseIterationBestAngle, double baseModelBestAngle, double heuristicInfluence);
     };

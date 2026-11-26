@@ -37,7 +37,7 @@ namespace STILOQ
         };
 
         System(QEAIteratorKey, int stateCount, int stringLength, double limitAngle,
-            InitializationOperator initialization, const std::vector<std::vector<std::vector<double>>>& heuristic,
+            InitializationType initialization, const std::vector<std::vector<std::vector<double>>>& heuristic,
             double heuristicInfluence)
             : stateCount_(stateCount),
               stringLength_(stringLength),
@@ -73,13 +73,13 @@ namespace STILOQ
         int stateCount_;
         int stringLength_;
         int particleCount_;
-        InitializationOperator initialization_;
+        InitializationType initialization_;
 
         void createParticle(int ind1, int ind2)
         {
             if constexpr (std::is_same_v<ParticleType, BinaryParticle>)
             {
-                if(initialization_ == InitializationOperator::Heuristic)
+                if(initialization_ == InitializationType::Heuristic)
                 {
                     particles_.emplace_back(std::make_unique<BinaryParticle>(typename ParticleClass::SystemKey{},
                         limitAngle_, heuristic_[ind1][ind2], heuristicInfluence_));
@@ -92,7 +92,7 @@ namespace STILOQ
             }
             else if constexpr (std::is_same_v<ParticleType, MultiLevelParticle>)
             {
-                if(initialization_ == InitializationOperator::Heuristic)
+                if(initialization_ == InitializationType::Heuristic)
                 {
                     particles_.emplace_back(std::make_unique<MultiLevelParticle>(typename ParticleClass::SystemKey{},
                         stateCount_, limitAngle_, heuristic_[ind1][ind2], heuristicInfluence_));

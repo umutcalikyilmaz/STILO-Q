@@ -6,7 +6,7 @@ namespace STILOQ
 {
     void BQEASolver::checkBinary(Problem* problem, const QEAConfiguration& config)
     {
-        if(problem->getStateCount() > 2 && config.initializationType == InitializationOperator::Heuristic)
+        if(problem->getStateCount() > 2 && config.initializationType == InitializationType::Heuristic)
         {
             throw InvalidParameterException((char*)"Heuristic initialization cannot be used for binary solution");
         }
@@ -23,7 +23,7 @@ namespace STILOQ
 
         std::vector<std::vector<std::vector<double>>> heuristic;
 
-        if(input.QEAConfig.initializationType == InitializationOperator::Heuristic)
+        if(input.QEAConfig.initializationType == InitializationType::Heuristic)
         {
             input.problem->getHeuristicValues(input.QEAConfig.graphStructure, heuristic);
         }
@@ -66,7 +66,7 @@ namespace STILOQ
 
         std::vector<std::vector<std::vector<double>>> heuristic;
 
-        if(input.QEAConfig.initializationType == InitializationOperator::Heuristic)
+        if(input.QEAConfig.initializationType == InitializationType::Heuristic)
         {
             input.problem->getHeuristicValues(input.QEAConfig.graphStructure, heuristic);
         }

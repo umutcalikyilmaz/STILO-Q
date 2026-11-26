@@ -26,14 +26,6 @@ namespace STILOQ
         Fast
     };
 
-    enum class AngleEvolutionOperator : uint8_t
-    {
-        Constant,
-        Exponential,
-        Linear,
-        Logarithmic,
-    };
-
     enum class PheromoneUpdateOperator : uint8_t
     {
         Classical,
@@ -112,7 +104,7 @@ namespace STILOQ
         RankBased
     };
 
-    enum class InitializationOperator : uint8_t
+    enum class InitializationType : uint8_t
     {
         Heuristic,
         Standard

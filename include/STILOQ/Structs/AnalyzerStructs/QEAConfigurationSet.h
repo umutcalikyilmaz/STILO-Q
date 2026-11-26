@@ -18,7 +18,7 @@ namespace STILOQ
         std::set<int> modelBestRotationCounts;
         std::set<AngleCalculationOperator> angleCalculationOperators;
         std::set<GraphStructure> graphStructures;
-        std::set<InitializationOperator> initializationTypes;
+        std::set<InitializationType> initializationTypes;
     };
     
 }

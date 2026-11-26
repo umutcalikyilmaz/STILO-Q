@@ -25,7 +25,7 @@ namespace STILOQ
 
         QEAIterator(QEASolverKey, Problem* problem, int populationSize, int measurementCount,
             int globalBestRotationCount, int iterationBestRotationCount, int modelBestRotationCount,
-            double limitAngle, InitializationOperator initialization,
+            double limitAngle, InitializationType initialization,
             std::vector<std::vector<std::vector<double>>>& heuristic, double baseGlobalBestAngle,
             double baseIterationBestAngle, double baseModelBestAngle, double heuristicInfluence)
             : problem_(problem),

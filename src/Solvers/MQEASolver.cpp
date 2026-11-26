@@ -14,7 +14,7 @@ namespace STILOQ
 
         std::vector<std::vector<std::vector<double>>> heuristic;
 
-        if(input.QEAConfig.initializationType == InitializationOperator::Heuristic)
+        if(input.QEAConfig.initializationType == InitializationType::Heuristic)
         {
             input.problem->getHeuristicValues(input.QEAConfig.graphStructure, heuristic);
         }
@@ -56,7 +56,7 @@ namespace STILOQ
 
         std::vector<std::vector<std::vector<double>>> heuristic;
 
-        if(input.QEAConfig.initializationType == InitializationOperator::Heuristic)
+        if(input.QEAConfig.initializationType == InitializationType::Heuristic)
         {
             input.problem->getHeuristicValues(input.QEAConfig.graphStructure, heuristic);
         }

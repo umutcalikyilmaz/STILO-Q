@@ -382,11 +382,11 @@ namespace STILOQ
                         {
                             inp_.QEAConfig.limitAngle = la;
 
-                            for(InitializationOperator io : params.initializationTypes)
+                            for(InitializationType io : params.initializationTypes)
                             {
                                 inp_.QEAConfig.initializationType = io;
                 
-                                if(io == InitializationOperator::Heuristic)
+                                if(io == InitializationType::Heuristic)
                                 {
                                     for(double hi : params.heuristicInfluences)
                                     {
