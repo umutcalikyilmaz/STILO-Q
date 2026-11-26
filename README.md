@@ -4,7 +4,7 @@
 [stilo-analyzers]: https://github.com/umutcalikyilmaz/STILO#analyzing-solver-configurations
 
 # STILO-Q
-STILO-Q is an extension of **[STILO](https://github.com/umutcalikyilmaz/STILO)**, a metaheuristic framework for optimization under strict time limits. In addition to the metaheuristic methods provided by STILO, STILO-Q implements binary and multi-level quantum-inspired evolutionary algorithms (QEAs), including variants based on graph-based qudit representations and heuristic initialization.
+STILO-Q is an extension of **[STILO][stilo]**, a metaheuristic framework for optimization under strict time limits. In addition to the metaheuristic methods provided by STILO, STILO-Q implements binary and multi-level quantum-inspired evolutionary algorithms (QEAs), including variants based on graph-based qudit representations and heuristic initialization.
 
 ## Relationship to STILO
 
