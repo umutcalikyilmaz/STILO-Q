@@ -62,7 +62,7 @@ input.QEAConfig.initializationType = initializationType;                  // STI
 input.QEAConfig.angleCalculationOperator = angleCalculation;              // STILOQ::AngleCalculationOperator
 input.QEAConfig.limitAngle = limitAngle;                                  // double 
 input.QEAConfig.globalBestRotationCount = globalBestRotationCount;        // int
-input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                //double
+input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                // double
 input.QEAConfig.iterationBestRotationCount = iterationBestRotationCount;  // int
 input.QEAConfig.baseIterationBestAngle = baseIterationBestAngle;          // double
 input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
@@ -86,7 +86,7 @@ input.QEAConfig.initializationType = initializationType;                  // STI
 input.QEAConfig.angleCalculationOperator = angleCalculation;              // STILOQ::AngleCalculationOperator
 input.QEAConfig.limitAngle = limitAngle;                                  // double 
 input.QEAConfig.globalBestRotationCount = globalBestRotationCount;        // int
-input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                //double
+input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                // double
 input.QEAConfig.iterationBestRotationCount = iterationBestRotationCount;  // int
 input.QEAConfig.baseIterationBestAngle = baseIterationBestAngle;          // double
 input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
@@ -96,7 +96,8 @@ input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // dou
 mqeaSolver.solve(input);
 ```
 
-It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILOQ allows them to be used for all implemented problem types.
-
+It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILO-Q allows them to be used for all implemented problem types.
 
 ### Analyzing Solver Configurations
+
+STILO-Q contains the two analyzer classes provided by STILO: `SyntheticAnalyzer` and `InstanceAnalyzer`. For a detailed description of the usage and function of these classes, please refer to the STILO documentation. The most important difference of the analysis tools in STILO-Q is the directory that the result CSV files written to is `~/.stilo-q/instance/analysis`.
