@@ -10,7 +10,9 @@ STILO-Q is an extension of **[STILO][stilo]**, a metaheuristic framework for opt
 
 STILO-Q retains the general functionalities of STILO, including problem modeling, synthetic instance generation, conventional metaheuristic solvers, and time-limited experimental analysis.
 
-STILO-Q is distributed as a separate, self-contained library and uses the `STILOQ` namespace instead of `STILO`. Since it shares many classes and functionalities with its predecessor, this documentation often refers to the STILO documentation, rather than repeating the existing instructions. When following the original `STILO` documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
+STILO-Q is distributed as a separate, self-contained library and uses the `STILOQ` namespace instead of `STILO`. Since it shares many classes and functionalities with its predecessor, this documentation often refers to the [STILO documentation][stilo] where appropriate, rather than repeating existing instructions. 
+
+When following the original STILO documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
 
 ## Installation
 STILO is designed for Debian-based systems and is currently not compatible with Windows or macOS. STILO requires C++20. For standard installation, the following bash instructions should be executed in the project's root folder.
@@ -38,7 +40,10 @@ The framework headers can be included using:
 ```
 
 ### Creating Problem Instances
-Similar to STILO, STILO-Q includes a generic `Problem` class that serves as a base for any problem to be integrated into the framework and five classes derived from the base `Problem` class, each representing a different discrete optimization problem. Instances can be created either from complete problem data or by providing parameters from which STILO-Q randomly generates an instance. The procedure for problem generation does not differ from the STILO framework, so the process is not repeated here. Please refer to STILO material for a detailed description of problem generation.
+
+STILO-Q provides the same problem classes and instance generation mechanisms as STILO. Instances can be created either from complete problem data or by providing parameters for random instance generation.
+
+For detailed descriptions of the supported problem types and instructions for creating problem instances, please refer to the [STILO documentation][stilo-problems].
 
 ### Solving Problem Instances
 STILOQ contains three solver classes:
