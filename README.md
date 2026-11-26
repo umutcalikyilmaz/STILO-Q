@@ -59,52 +59,38 @@ Each solver is derived from the base `Solver` class and provides a `solve()` mem
 `BQEASolver` and `MQEASolver` share the same algorithmic structure and the same configuration space. Therefore, the configurations for both solvers are controlled by the same class, `QEAConfiguration`. A `SolverInput` object has a member of this class. If a `SolverInput` instance is used as the input of a `BQEASolver` instance, it determines the configurations of the BQEA algorithm. Likewise, if it is used as an input for a `MQEASolver` instance, it determines the configurations of the BQEA algorithm. Both uses are shown below.
 
 ```
+STILOQ::SolverInput input;
+
+input.problem = &problemInstance;   // Problem*
+input.timeLimit = timeLimit;        // std::chrono::milliseconds
+
+input.QEAConfig.populationSize = populationSize;                          // int
+input.QEAConfig.measurementCount = measurementCount;                      // int
+input.QEAConfig.graphStructure = graphStructure;                          // STILOQ::GraphStructure
+input.QEAConfig.initializationType = initializationType;                  // STILOQ::InitializationType
+input.QEAConfig.angleCalculationOperator = angleCalculation;              // STILOQ::AngleCalculationOperator
+input.QEAConfig.limitAngle = limitAngle;                                  // double 
+input.QEAConfig.globalBestRotationCount = globalBestRotationCount;        // int
+input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                // double
+input.QEAConfig.iterationBestRotationCount = iterationBestRotationCount;  // int
+input.QEAConfig.baseIterationBestAngle = baseIterationBestAngle;          // double
+input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
+input.QEAConfig.baseModelBestAngle = baseModelBestAngle;                  // double
+input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // double
+
 STILOQ::BQEASolver bqeaSolver;
-STILOQ::SolverInput input;
-
-input.problem = &problemInstance;   // Problem*
-input.timeLimit = timeLimit;        // std::chrono::milliseconds
-
-input.QEAConfig.populationSize = populationSize;                          // int
-input.QEAConfig.measurementCount = measurementCount;                      // int
-input.QEAConfig.graphStructure = graphStructure;                          // STILOQ::GraphStructure
-input.QEAConfig.initializationType = initializationType;                  // STILOQ::InitializationType
-input.QEAConfig.angleCalculationOperator = angleCalculation;              // STILOQ::AngleCalculationOperator
-input.QEAConfig.limitAngle = limitAngle;                                  // double 
-input.QEAConfig.globalBestRotationCount = globalBestRotationCount;        // int
-input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                // double
-input.QEAConfig.iterationBestRotationCount = iterationBestRotationCount;  // int
-input.QEAConfig.baseIterationBestAngle = baseIterationBestAngle;          // double
-input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
-input.QEAConfig.baseModelBestAngle = baseModelBestAngle;                  // double
-input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // double
-
 bqeaSolver.solve(input);
-```
 
-```
 STILOQ::MQEASolver mqeaSolver;
-STILOQ::SolverInput input;
-
-input.problem = &problemInstance;   // Problem*
-input.timeLimit = timeLimit;        // std::chrono::milliseconds
-
-input.QEAConfig.populationSize = populationSize;                          // int
-input.QEAConfig.measurementCount = measurementCount;                      // int
-input.QEAConfig.graphStructure = graphStructure;                          // STILOQ::GraphStructure
-input.QEAConfig.initializationType = initializationType;                  // STILOQ::InitializationType
-input.QEAConfig.angleCalculationOperator = angleCalculation;              // STILOQ::AngleCalculationOperator
-input.QEAConfig.limitAngle = limitAngle;                                  // double 
-input.QEAConfig.globalBestRotationCount = globalBestRotationCount;        // int
-input.QEAConfig.baseGlobalBestAngle = baseGlobalBestAngle;                // double
-input.QEAConfig.iterationBestRotationCount = iterationBestRotationCount;  // int
-input.QEAConfig.baseIterationBestAngle = baseIterationBestAngle;          // double
-input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
-input.QEAConfig.baseModelBestAngle = baseModelBestAngle;                  // double
-input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // double
-
 mqeaSolver.solve(input);
 ```
+
+| Algorithm variant | Solver class | Graph structure | Initialization |
+|---|---|---|---|
+| BQEA | `BQEASolver` | Sequential | Standard |
+| MQEA | `MQEASolver` | Sequential | Standard |
+| MQEA-G | `MQEASolver` | Graph-based | Standard |
+| MQEA-GH | `MQEASolver` | Graph-based | Heuristic |
 
 It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILO-Q allows them to be used for all implemented problem types.
 
