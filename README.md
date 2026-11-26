@@ -4,7 +4,7 @@
 [stilo-analyzers]: https://github.com/umutcalikyilmaz/STILO#analyzing-solver-configurations
 
 # STILO-Q
-STILO-Q is an extension of **[STILO][stilo]**, a metaheuristic framework for optimization under strict time limits. In addition to the metaheuristic methods provided by STILO, STILO-Q implements binary and multi-level quantum-inspired evolutionary algorithms (QEAs), including variants based on graph-based qudit representations and heuristic initialization.
+STILO-Q is an extension of **[STILO][stilo]**, a metaheuristic framework for optimization under strict time limits. In addition to the metaheuristic methods provided by STILO, STILO-Q implements binary and multi-level quantum-inspired evolutionary algorithms (QEAs), including variants incorporating graph-based qudit representations and heuristic initialization.
 
 ## Relationship to STILO
 
@@ -15,7 +15,7 @@ STILO-Q is distributed as a separate, self-contained library and uses the `STILO
 When following the original STILO documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
 
 ## Installation
-STILO is designed for Debian-based systems and is currently not compatible with Windows or macOS. STILO requires C++20. For standard installation, the following bash instructions should be executed in the project's root folder.
+STILO-Q is designed for Debian-based systems and is currently not compatible with Windows or macOS. STILO-Q requires CMake 3.20 or later and a compiler supporting C++20. For standard installation, the following bash instructions should be executed in the project's root folder.
 
 ```bash
 mkdir build
@@ -26,7 +26,7 @@ sudo make install
 
 ## Usage
 ### Importing the Library
-After installation, STILO-Q can be imported to a project by adding the following lines in the `CMakeLists.txt` file.
+After installation, STILO-Q can be imported into a project by adding the following lines to the `CMakeLists.txt` file.
 
 ```cmake
 find_package(STILOQ REQUIRED)
@@ -46,7 +46,7 @@ STILO-Q provides the same problem classes and instance generation mechanisms as 
 For detailed descriptions of the supported problem types and instructions for creating problem instances, please refer to the [STILO documentation][stilo-problems].
 
 ### Solving Problem Instances
-STILOQ contains three solver classes:
+STILO-Q contains five solver classes:
 - `ACOSolver` (Ant Colony Optimization Solver)
 - `GASolver` (Genetic Algorithm Solver)
 - `SASolver` (Simulated Annealing Solver)
@@ -54,11 +54,11 @@ STILOQ contains three solver classes:
 - `MQEASolver` (Multi-Level Quantum-Inspired Evolutionary Algorithm Solver)
 
 
-Each solver is derived from the base `Solver` class and provides a `solve()` member function for solving a given problem instance under a specified configuration. Solver inputs are standardized through the `SolverInput` class. The examples below demonstrate how to configure and use `BQEASolver` and `MQEASolver`. The purpose and behavior of the individual configuration parameters are described in detail in the referenced paper. The other solvers are explained in the STILO documentation.
+Each solver is derived from the base `Solver` class and provides a `solve()` member function for solving a given problem instance under a specified configuration. Solver inputs are standardized through the `SolverInput` class. The examples below demonstrate how to configure and use `BQEASolver` and `MQEASolver`. The purpose and behavior of the individual configuration parameters are described in detail in the referenced paper. The other solvers are described in the [STILO documentation][stilo-solvers].
 
-`BQEASolver` and `MQEASolver` share the same algorithmic structure and the same configuration space. Therefore, the configurations for both solvers are controlled by the same class, `QEAConfiguration`. A `SolverInput` object has a member of this class. If a `SolverInput` instance is used as the input of a `BQEASolver` instance, it determines the configurations of the BQEA algorithm. Likewise, if it is used as an input for a `MQEASolver` instance, it determines the configurations of the BQEA algorithm. Both uses are shown below.
+`BQEASolver` and `MQEASolver` share the same algorithmic structure and use a common configuration class, `QEAConfiguration`, accessible through the `QEAConfig` member of a `SolverInput` instance. Depending on the solver to which the SolverInput object is passed, this configuration determines the behavior of either BQEA or MQEA. Both uses are demonstrated in the following example.
 
-```
+```cpp
 STILOQ::SolverInput input;
 
 input.problem = &problemInstance;   // Problem*
@@ -78,24 +78,32 @@ input.QEAConfig.modelBestRotationCount = modelBestRotationCount;          // int
 input.QEAConfig.baseModelBestAngle = baseModelBestAngle;                  // double
 input.QEAConfig.heuristicInfluence = heuristicInfluence;                  // double
 
+// Solving the problem using BQEA
 STILOQ::BQEASolver bqeaSolver;
-bqeaSolver.solve(input);
+auto bqeaOutput = bqeaSolver.solve(input);
 
+// Solving the problem using MQEA
 STILOQ::MQEASolver mqeaSolver;
-mqeaSolver.solve(input);
+auto mqeaOutput = mqeaSolver.solve(input);
 ```
 
-The four QEA variants mentioned in the cited paper, and the configuration settings to use them in STILO-Q are given below.
+The following table shows the solver classes and configuration settings corresponding to the four QEA variants evaluated in the referenced paper.
 
 | Algorithm variant | Solver class | Graph structure | Initialization |
 |---|---|---|---|
-| BQEA | `BQEASolver` | STILOQ::GraphStructure::Sequential | STILOQ::InitializationType::Standard |
-| MQEA | `MQEASolver` | STILOQ::GraphStructure::Sequential | STILOQ::InitializationType::Standard |
-| MQEA-G | `MQEASolver` | STILOQ::GraphStructure::SingleStage | STILOQ::InitializationType::Standard |
-| MQEA-GH | `MQEASolver` | STILOQ::GraphStructure::SingleStage | STILOQ::InitializationType::Heuristic |
+| BQEA | `BQEASolver` | `STILOQ::GraphStructure::Sequential` | `STILOQ::InitializationType::Standard` |
+| MQEA | `MQEASolver` | `STILOQ::GraphStructure::Sequential` | `STILOQ::InitializationType::Standard` |
+| MQEA-G | `MQEASolver` | `STILOQ::GraphStructure::SingleStage` | `STILOQ::InitializationType::Standard` |
+| MQEA-GH | `MQEASolver` | `STILOQ::GraphStructure::SingleStage` | `STILOQ::InitializationType::Heuristic` |
 
-It is important to note that the cited paper does not cover all configurations provided by STILO-Q. For example, in the paper, only BQEA configurations with a graph structure of `STILOQ::GraphStructure::Sequential`, and initialization type of `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations with `STILOQ::GraphStructure::MultiStage` are not considered. The framework allows the use of such configurations, although the paper does not provide any results on their effectiveness. Additionally, the cited paper does not cover the use of BQEA and MQEA configurations on any other problem than the traveling salesperson problem, even though STILO-Q allows them to be used for all implemented problem types.
+#### Scope of the Experimental Evaluation
+
+The experimental evaluation presented in the referenced paper does not cover all configurations supported by STILO-Q.  For example, only BQEA configurations using `STILOQ::GraphStructure::Sequential` and `STILOQ::InitializationType::Standard` are considered. Similarly, MQEA configurations using `STILOQ::GraphStructure::MultiStage` are not included in the evaluation. The framework supports the use of such configurations, but their performances are not evaluated in the referenced paper.
+
+Furthermore, the experimental analysis is restricted to the application of these algorithms to the Traveling Salesperson Problem (TSP), although STILO-Q supports the application of BQEA and MQEA to all implemented problem types.
 
 ### Analyzing Solver Configurations
 
-STILO-Q contains the two analyzer classes provided by STILO: `SyntheticAnalyzer` and `InstanceAnalyzer`. For a detailed description of the usage and function of these classes, please refer to the STILO documentation. The most important difference of the analysis tools in STILO-Q is the directory that the result CSV files written to is `~/.stilo-q/instance/analysis`.
+STILO-Q retains the two analyzer classes provided by STILO: `SyntheticAnalyzer` and `InstanceAnalyzer`. For detailed descriptions of these classes and their usage, please refer to the [STILO documentation][stilo-analyzers].
+
+In STILO-Q, the CSV files generated by the analysis tools are stored in `~/.stilo-q/instance/analysis`.
