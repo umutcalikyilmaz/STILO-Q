@@ -1,11 +1,16 @@
+[stilo]: https://github.com/umutcalikyilmaz/STILO
+[stilo-problems]: https://github.com/umutcalikyilmaz/STILO#creating-problem-instances
+[stilo-solvers]: https://github.com/umutcalikyilmaz/STILO#solving-problem-instances
+[stilo-analyzers]: https://github.com/umutcalikyilmaz/STILO#analyzing-solver-configurations
+
 # STILO-Q
-STILO-Q is an extension of the **[STILO](https://github.com/umutcalikyilmaz/STILO)**, which is a metaheuristic framework for strict time-limited optimization. STILO-Q includes different variants of the quantum-inspired evolutionary algorithm (QEA), in addition to the metaheuristic methods provided in STILO.
+STILO-Q is an extension of **[STILO](https://github.com/umutcalikyilmaz/STILO)**, a metaheuristic framework for optimization under strict time limits. In addition to the metaheuristic methods provided by STILO, STILO-Q implements binary and multi-level quantum-inspired evolutionary algorithms (QEAs), including variants based on graph-based qudit representations and heuristic initialization.
 
 ## Relationship to STILO
 
-STILO-Q retains the general functionalities of STILO, including problem modeling, synthetic instance generation, conventional metaheuristic solvers, and time-limited experimental analysis. For detailed descriptions of these functionalities, please refer to the original STILO documentation.
+STILO-Q retains the general functionalities of STILO, including problem modeling, synthetic instance generation, conventional metaheuristic solvers, and time-limited experimental analysis.
 
-STILO-Q is distributed as a separate, self-contained library and uses the `STILOQ` namespace instead of `STILO. Since it shares many classes and functionalities with its predecessor, this documentation often refers to the STILO documentation, rather than repeating the existing instructions. When following the original `STILO` documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
+STILO-Q is distributed as a separate, self-contained library and uses the `STILOQ` namespace instead of `STILO`. Since it shares many classes and functionalities with its predecessor, this documentation often refers to the STILO documentation, rather than repeating the existing instructions. When following the original `STILO` documentation, references to the `STILO` namespace and the `STILO/` header directory should be replaced with `STILOQ` and `STILOQ/`, respectively.
 
 ## Installation
 STILO is designed for Debian-based systems and is currently not compatible with Windows or macOS. STILO requires C++20. For standard installation, the following bash instructions should be executed in the project's root folder.
